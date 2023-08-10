@@ -1,0 +1,27 @@
+<?php
+/** @var Magebit\Faq\Block\QuestionList $block */
+/** @var Magebit\Faq\Api\Data\QuestionInterface $item */
+/** @var Magento\Framework\Escaper $escaper */
+?>
+
+<div class="question-container">
+    <?php foreach ($block->getQuestions() as $question): ?>
+            <div data-role="collapsible">
+                <div data-role="trigger">
+                    <p class="question"><?= $escaper->escapeHtml(__($question->getQuestion())) ?></p>
+                </div>
+            </div>
+            <div data-role="content">
+                <p class="answer"><?= $escaper->escapeHtml(__($question->getAnswer())) ?></p>
+            </div>
+        <?php endforeach;?>
+</div>
+
+<script>
+    require([
+        'jquery',
+        'accordion'], function ($) {
+        'use strict';
+        $(".question-container").accordion({ multipleCollapsible: true, collapsible: true });
+    });
+</script>

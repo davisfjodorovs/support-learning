@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="faq" resource="default" engine="innodb" comment="Frequently asked questions table">
+        <column xsi:type="int" name="id" unsigned="false" nullable="false" identity="true" comment="Primary key" />
+        <column name="question" xsi:type="text" nullable="false" />
+        <column name="answer" xsi:type="text" nullable="false" />
+        <column name="status" xsi:type="smallint" default="0" nullable="false" />
+        <column name="position" xsi:type="int" default="0" nullable="false" />
+        <column name="updated_at" xsi:type="timestamp" on_update="true" default="CURRENT_TIMESTAMP" />
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="id" />
+        </constraint>
+        <index referenceId="FAQ_ID" indexType="btree">
+            <column name="id" />
+        </index>
+        <index referenceId="FAQ_ANSWER" indexType="fulltext">
+            <column name="question" />
+        </index>
+    </table>
+</schema>

@@ -1,0 +1,35 @@
+<?php
+/**
+ * @copyright Copyright (c) 2023 Magebit, Ltd. (https://magebit.com/)
+ * @author    Magebit <info@magebit.com>
+ * @license   MIT
+ */
+
+/**
+ * Product additional attributes template
+ *
+ * @var Magebit\Learning\Block\AttributeElement $block
+ * @var Magento\Catalog\Helper\Output $helper
+ * @var Magento\Catalog\Api\Data\ProductInterface $product
+ * @var Magento\Framework\Escaper $escaper
+ */
+?>
+<?php
+    $attributes = $block->getAttributes();
+    $shortDescription = $block->getShortDescription();
+?>
+
+<?php if(!empty($attributes) || !empty($shortDescription)): ?>
+    <div class="attribute-element">
+        <?php if(!empty($attributes)): ?>
+            <ul>
+                <?php foreach ($attributes as $attribute): ?>
+                    <li><strong><?= $escaper->escapeHtml($attribute["label"]) ?></strong>: <?= $escaper->escapeHtml($attribute["value"]) ?></li>
+                <?php endforeach; ?>
+            </ul>
+        <?php endif; ?>
+        <?php if(!empty($shortDescription)): ?>
+            <p><?= $escaper->escapeHtml(strip_tags($shortDescription)) ?></p>
+        <?php endif; ?>
+    </div>
+<?php endif; ?>

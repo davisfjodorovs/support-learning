@@ -1,0 +1,11 @@
+<div class="qty-counter-container">
+    <button class="qty-button decrease" data-bind="click: decreaseQty">-</button>
+    <label class="label" for="qty"></label>
+    <input type="number"
+           name="qty"
+           id="qty"
+           min="0"
+           class="input-text qty"
+           data-bind="value: qty" />
+    <button class="qty-button increase" data-bind="click: increaseQty">+</button>
+</div>
