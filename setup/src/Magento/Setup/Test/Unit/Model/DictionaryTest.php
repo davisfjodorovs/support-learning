@@ -18,7 +18,7 @@ class DictionaryTest extends TestCase
     private $dictionary = [
         'lorem', 'ipsum', 'dolor', 'sit', 'amet', 'consectetur', 'adipiscing',
         'elit', 'sed', 'do', 'eiusmod', 'tempor', 'incididunt', 'ut', 'labore',
-        'et', 'dolore', 'magna', 'aliqua'
+        'etc', 'dolore', 'magna', 'aliqua'
     ];
 
     public function testDictionaryFileNotFoundException()

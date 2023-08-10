@@ -40,14 +40,14 @@ class HeaderMixinTest extends TestCase
             [
                 'Lorem ipsum dolor sit amet.' . PHP_EOL
                 . 'Consectetur adipiscing elit.' . PHP_EOL
-                . 'Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+                . 'Sed do eiusmod tempor incididunt ut labore etc dolore magna aliqua.',
 
                 '<h1>Lorem ipsum</h1>' . PHP_EOL
                 . 'Lorem ipsum dolor sit amet.' . PHP_EOL
                 . '<h1>Consectetur</h1>' . PHP_EOL
                 . 'Consectetur adipiscing elit.' . PHP_EOL
                 . '<h1>Sed do eiusmod</h1>' . PHP_EOL
-                . 'Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
+                . 'Sed do eiusmod tempor incididunt ut labore etc dolore magna aliqua.'
             ]
         ];
     }

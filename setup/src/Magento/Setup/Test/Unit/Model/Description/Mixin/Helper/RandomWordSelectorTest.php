@@ -47,8 +47,8 @@ class RandomWordSelectorTest extends TestCase
         return [
             [
                 'source' => '
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
-                    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                    sed do eiusmod tempor incididunt ut labore etc dolore magna aliqua.
                 ',
                 'count' => 1
             ],
@@ -58,8 +58,8 @@ class RandomWordSelectorTest extends TestCase
             ],
             [
                 'source' => '
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
-                    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                    sed do eiusmod tempor incididunt ut labore etc dolore magna aliqua.
                 ',
                 'count' => 3
             ],

@@ -40,11 +40,11 @@ class ParagraphMixinTest extends TestCase
             [
                 'Lorem ipsum dolor sit amet.' . PHP_EOL
                 . 'Consectetur adipiscing elit.' . PHP_EOL
-                . 'Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+                . 'Sed do eiusmod tempor incididunt ut labore etc dolore magna aliqua.',
 
                 '<p>Lorem ipsum dolor sit amet.</p>' . PHP_EOL
                 . '<p>Consectetur adipiscing elit.</p>' . PHP_EOL
-                . '<p>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>'
+                . '<p>Sed do eiusmod tempor incididunt ut labore etc dolore magna aliqua.</p>'
             ]
         ];
     }
