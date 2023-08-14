@@ -4,8 +4,6 @@ declare(strict_types=1);
 
 namespace Magebit\SpecialProduct\Setup\Patch\Data;
 
-
-
 use Magento\Directory\Api\CountryInformationAcquirerInterface;
 use Magento\Framework\Api\SearchCriteriaBuilder;
 use Magento\Framework\Exception\InputException;
@@ -21,7 +19,6 @@ use Magento\Tax\Api\Data\TaxClassInterfaceFactory;
 use Magento\Tax\Api\Data\TaxRateInterface;
 use Magento\Tax\Api\Data\TaxClassInterface;
 use Magento\Tax\Model\ClassModel;
-
 
 class GlobalTax implements DataPatchInterface
 {
@@ -101,12 +98,16 @@ class GlobalTax implements DataPatchInterface
     }
 
     /**
+     * Get all the customer tax class ids
+     *
      * @throws InputException
      */
     private function getCustomerTaxClassIds(): array
     {
         $customerTaxClassIds = [];
-        $searchCriteria = $this->searchCriteriaBuilder->addFilter(ClassModel::KEY_TYPE, ClassModel::TAX_CLASS_TYPE_CUSTOMER)->create();
+        $searchCriteria = $this->searchCriteriaBuilder
+            ->addFilter(ClassModel::KEY_TYPE, ClassModel::TAX_CLASS_TYPE_CUSTOMER)
+            ->create();
         $items = $this->taxClassRepository->getList($searchCriteria)->getItems();
         foreach($items as $item) {
             $customerTaxClassIds[] = $item->getId();
@@ -115,11 +116,14 @@ class GlobalTax implements DataPatchInterface
     }
 
     /**
+     * Create tax class
+     *
      * @throws InputException
      * @throws LocalizedException
      */
     private function createTaxClass(): TaxClassInterface
     {
+        /** @var TaxClassInterface $taxClass */
         $taxClass = $this->taxClassInterfaceFactory->create();
         $taxClass->setClassName("5 Global");
         $taxClass->setClassType(ClassModel::TAX_CLASS_TYPE_PRODUCT);
@@ -128,6 +132,8 @@ class GlobalTax implements DataPatchInterface
     }
 
     /**
+     * Create a tax rule
+     *
      * @param array $taxRateIds
      * @param array $taxClassIds
      * @param array $customerTaxClassIds
@@ -148,6 +154,8 @@ class GlobalTax implements DataPatchInterface
     }
 
     /**
+     * Create tax rate for each country
+     *
      * @return array
      * @throws InputException
      */
