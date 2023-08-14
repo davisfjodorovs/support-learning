@@ -4,24 +4,28 @@ declare(strict_types=1);
 
 namespace Magebit\PreFooterText\Block;
 
-class PreFooterText extends \Magento\Framework\View\Element\Template
+use Magento\Cms\Api\Data\PageInterface;
+use Magento\Framework\View\Element\Template;
+use Magento\Framework\View\Element\Template\Context;
+
+class PreFooterText extends Template
 {
     /**
-     * @var \Magento\Cms\Api\Data\PageInterface
+     * @var PageInterface
      */
-    private \Magento\Cms\Api\Data\PageInterface $page;
+    private PageInterface $page;
 
     /**
-     * @param \Magento\Framework\View\Element\Template\Context $context
-     * @param \Magento\Cms\Api\Data\PageInterface $page
+     * @param Context $context
+     * @param PageInterface $page
      * @param array $data
      */
     public function __construct(
-        \Magento\Framework\View\Element\Template\Context $context,
-        \Magento\Cms\Api\Data\PageInterface $page,
+        Context $context,
+        PageInterface $page,
         array $data = []
     ) {
-        \Magento\Framework\View\Element\Template::__construct($context, $data);
+        parent::__construct($context, $data);
         $this->page = $page;
     }
 
