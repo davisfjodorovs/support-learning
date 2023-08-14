@@ -78,3 +78,4 @@ atlassian*
 /app/code/MageMastery
 
 /app/design/frontend/Test
+auth.json
